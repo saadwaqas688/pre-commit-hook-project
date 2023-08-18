@@ -1,0 +1,14 @@
+#!/bin/sh
+
+# Define a pattern to match Jira ticket IDs (e.g., ABC-123)
+JIRA_PATTERN="[A-Z]+-[0-9]+"
+
+# Read the commit message from the standard input
+COMMIT_MSG=$(cat "$1")
+
+# Check if the commit message contains a Jira ticket ID
+if ! echo "$COMMIT_MSG" | grep -E "$JIRA_PATTERN" >/dev/null; then
+    echo "Error: Commit message should include a Jira ticket ID."
+    echo "Required format: [ticketid] <description>"
+    exit 1
+fi

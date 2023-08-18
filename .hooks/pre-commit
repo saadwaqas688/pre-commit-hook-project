@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# Run linting and capture the output
+LINT_OUTPUT=$(npm run lint 2>&1)
+
+# Check if the captured output contains any linting issues
+if echo "$LINT_OUTPUT" | grep -E "error:|warning:" >/dev/null; then
+    echo "Linting issues found. Please fix the issues before committing."
+    echo "$LINT_OUTPUT"
+    exit 1
+fi
