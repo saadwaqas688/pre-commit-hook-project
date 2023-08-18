@@ -8,6 +8,6 @@ module.exports = {
       'error',
       { vars: 'all', args: 'after-used', ignoreRestSiblings: true },
     ],
-    'no-console': 'warn',
+    'no-console': 'error',
   },
 };
