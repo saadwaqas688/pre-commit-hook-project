@@ -1,6 +1,12 @@
 module.exports = {
   extends: ['next', 'plugin:prettier/recommended'],
   rules: {
-    // Add any additional rules or overrides here
+    // ...other rules
+
+    // Add the no-unused-vars rule
+    'no-unused-vars': [
+      'error',
+      { vars: 'all', args: 'after-used', ignoreRestSiblings: true },
+    ],
   },
 };
